@@ -2,7 +2,10 @@
 
 :root {
     --verde: #49a09d;
+    --verdeescuro: #214847;
     --lilas: #5f2c82;
+    --verdeclaro: #6ae0dc;
+    --verdetransparent: #6ae0dcc6;
 }
 
 * {
@@ -29,14 +32,14 @@ section#login {
     top: 50%;
     left: 50%;
     overflow: hidden; /* Isto é tudo que estiver fora da borda vai ficar invisivel */
-    transform: translate(-50%, -50%);
     background-color: white;
     width: 252px;
-    height: 500px;
+    height: 520px;
     border-radius: 20px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
     transition: width .3s, height .3s;
     transition-timing-function: ease; /* Suavizar A Animação */
+    transform: translate(-50%, -50%); /* Atenção quando você tiver uma animação para fazer faça ele na ultima linha */
 }
 
 section#login div#imagem {
@@ -57,5 +60,94 @@ div#formulario h1 {
 }
 
 div#formulario p {
+    font-size: 0.8em;
+}
+
+form div.campo {
+    display: block;
+    border: 2px solid var(--lilas);
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    margin: 5px 0px;
+    background-color: var(--lilas);
+}
+
+div.campo > span {
+    color: white;
+    font-size: 2em;
+    width: 40px;
+    padding: 7px;
+}
+
+div.campo input {
+    background-color: var(--verdeclaro);
+    font-size: 1em;
+    width: calc(100% - 45px);
+    border-radius: 8px;
+    border: none;
+    height: 96%;
+    padding: 2px;
+    transform: translateY(-12px); /* Atenção Sempre que você tiver uma animação para fazer faça na ultima linha */
+}
+
+/* Isso serve para ganhar focu quando eu estiver digitando ele, quando eu clicar a caixa vai mudar de cor para eu clicar */
+div.campo input:focus-within {
+    background-color: white; 
+    outline: none;
+}
+
+/* div.campo input:focus,
+div.campo input:valid {
+    outline: none;
+} 
+Posso usar isso para tirar a outline do input aquela borda preta dentro do input ou posso colocar tbm no focus-within 
+*/
+
+form input[type=submit] {
+    display: block;
+    font-size: 1em;
+    width: 100%;
+    height: 40px;
+    background-color: var(--verde);
+    border: 1px solid black;;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.192);
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+form input[type=submit]:hover {
+    background-color: var(--verdeescuro);
+    transition: 0.3s;
+}
+
+form label {
+    display: none;
+}
+
+form a.botao {
+    display:block;
+    text-align: center;
+    font-size: 1em;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--verdeescuro);
+    padding-top: 6px;
+    text-decoration: none;
+    color: var(--verdeescuro);
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.268);
+}
+
+form a.botao:hover {
+    color: black;
+    background-color: var(--verdeclaro);
+    transition: 0.3s;
+}
+
+form a.botao span {
     font-size: 0.8em;
 }
